@@ -130,7 +130,7 @@ export async function getSkills() {
     slugs.map(async (slug) => {
       const data = await reader.collections.skills.read(slug);
       if (!data) return null;
-      return { slug, ...data };
+      return { ...data };
     })
   );
   return items
