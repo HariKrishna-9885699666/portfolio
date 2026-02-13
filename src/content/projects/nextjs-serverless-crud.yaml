@@ -1,0 +1,9 @@
+title: NextJS Serverless CRUD Operations
+description: A project demonstrating CRUD operations using Next.js and Serverless functions.
+techStack:
+  - Next.js
+  - Node.js
+  - Serverless
+liveUrl: https://harikrishna.is-a-good.dev/index.html
+featured: true
+sortOrder: 1

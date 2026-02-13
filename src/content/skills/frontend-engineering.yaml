@@ -1,0 +1,17 @@
+slug: frontend-engineering
+title: Frontend Engineering
+highlights:
+  - "Specialized in creating high-performance user interfaces using React, Next.js, and TypeScript."
+  - "Expert in implementing secure authentication via Azure AD and state management with Redux."
+items:
+  - name: React
+    proficiency: expert
+  - name: Next.js
+    proficiency: expert
+  - name: TypeScript
+    proficiency: expert
+  - name: Redux
+    proficiency: expert
+  - name: Tailwind CSS
+    proficiency: expert
+sortOrder: 3

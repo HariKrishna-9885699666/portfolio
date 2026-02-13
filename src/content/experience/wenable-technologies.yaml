@@ -1,0 +1,12 @@
+company: Wenable Technologies
+role: Senior Software Engineer
+startDate: Dec 2014
+endDate: Nov 2017
+location: Hyderabad
+description: Built a cab booking platform with mobile apps and admin portal using PHP backend, MySQL, and real-time tracking integrations.
+highlights:
+  - Built a cab booking platform with mobile apps and admin portal
+  - Designed admin and finance reporting modules
+  - Implemented driver assignment logic to support operational scale
+  - Developed backend scripts and optimized database queries to improve transaction throughput
+sortOrder: 4

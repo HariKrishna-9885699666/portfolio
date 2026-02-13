@@ -1,0 +1,12 @@
+company: Carnera Technologies
+role: Technical Architect
+startDate: May 2024
+endDate: Present
+location: Pune (Remote)
+description: Designed and implemented a vendor prequalification portal using NestJS and React, delivering role-based access control and multi-stage workflows to improve vendor onboarding and compliance.
+highlights:
+  - Designed and implemented a vendor prequalification portal using NestJS and React
+  - Integrated Microsoft Dynamics 365 and optimized APIs and client-side rendering
+  - Implemented Infrastructure as Code and Serverless Framework patterns with CloudWatch and SNS
+  - Developed IaC and serverless microservices for Autodesk (Contingent) using AWS Lambda and API Gateway
+sortOrder: 1

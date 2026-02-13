@@ -1,0 +1,9 @@
+title: Covid-19 Statistics Tracker
+description: Interactive dashboard for tracking Covid-19 statistics globally and by country.
+techStack:
+  - React
+  - Chart.js
+  - API Integration
+liveUrl: https://harikrishna.is-a-good.dev/index.html
+featured: true
+sortOrder: 2

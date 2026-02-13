@@ -1,0 +1,17 @@
+slug: full-stack-development
+title: Full-Stack Development
+highlights:
+  - "8+ years of hands-on expertise in the MERN stack, building scalable client and server-side applications."
+  - "Proficient in modern backend frameworks like Node.js, NestJS, and GraphQL to drive performance."
+items:
+  - name: Node.js
+    proficiency: expert
+  - name: NestJS
+    proficiency: expert
+  - name: Express.js
+    proficiency: expert
+  - name: MongoDB
+    proficiency: expert
+  - name: GraphQL
+    proficiency: expert
+sortOrder: 1

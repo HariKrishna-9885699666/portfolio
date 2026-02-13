@@ -1,0 +1,13 @@
+company: Tata Consultancy Services
+role: Associate Consultant
+startDate: Aug 2022
+endDate: Apr 2024
+location: Hyderabad
+description: Led a frontend team to build a Proposal and Contract System using React, TypeScript, Apollo Client, and GraphQL; implemented secure authentication with Azure AD and integrated third-party APIs.
+highlights:
+  - Led a frontend team to build a Proposal and Contract System using React, TypeScript, Apollo Client, and GraphQL
+  - Implemented secure authentication with Azure AD and integrated third-party APIs
+  - Built Node.js Lambda backend services and API Gateway endpoints
+  - Contributed to TDD and Technical Design Documents
+  - Integrated Mapbox for location-based functionality
+sortOrder: 2

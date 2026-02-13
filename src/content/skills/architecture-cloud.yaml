@@ -1,0 +1,18 @@
+title: Architecture & Cloud
+highlights:
+  - >-
+    Extensive experience in Serverless Architecture, AWS Lambda, and
+    Infrastructure as Code (IaC).
+  - >-
+    Skilled in designing microservices, role-based workflows, and complex API
+    integrations.
+items:
+  - name: AWS Lambda
+    proficiency: expert
+  - name: Serverless
+    proficiency: expert
+  - name: Docker
+    proficiency: expert
+  - name: Microservices
+    proficiency: expert
+sortOrder: 2

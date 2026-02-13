@@ -1,0 +1,33 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "description": "Personal Portfolio - Senior Full Stack Developer",
+  "author": "Hari Krishna Anem <anemharikrishna@gmail.com> (https://harikrishna.is-a-good.dev/)",
+  "private": true,
+  "packageManager": "yarn@4.9.2",
+  "scripts": {
+    "dev": "next dev --turbo",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@keystatic/core": "^0.5.48",
+    "@keystatic/next": "^5.0.4",
+    "next": "16.1.6",
+    "react": "19.2.2",
+    "react-dom": "19.2.2",
+    "resend": "^6.9.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.1.6",
+    "postcss": "^8",
+    "tailwindcss": "latest",
+    "typescript": "^5"
+  }
+}

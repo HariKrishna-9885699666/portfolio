@@ -1,0 +1,12 @@
+company: West Agile Labs
+role: Associate Technical Lead
+startDate: Dec 2017
+endDate: Jul 2022
+location: Hyderabad
+description: Architected and developed a Windows-based operations app and reusable React UI components; managed a 3-member team and led sprint planning to deliver features on schedule.
+highlights:
+  - Architected and developed a Windows-based operations app and reusable React UI components
+  - Designed RESTful Node.js APIs and authored SQL queries to support backend workflows
+  - Managed a 3-member team and led sprint planning
+  - Implemented maintainable code patterns and optimized front-end performance
+sortOrder: 3
