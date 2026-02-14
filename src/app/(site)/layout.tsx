@@ -73,6 +73,19 @@ export default function SiteLayout({
       
       <Script src="/js/plugins.js" strategy="afterInteractive" />
       <Script src="/js/main.js" strategy="afterInteractive" />
+
+      {/* Failsafe to ensure body is visible even if main.js fails to remove preloader/overflow */}
+      <Script id="force-visible" strategy="afterInteractive">
+        {`
+          setTimeout(function() {
+            document.body.style.overflow = 'visible';
+            var preloader = document.getElementById('preloader-active');
+            if (preloader) {
+              preloader.style.display = 'none';
+            }
+          }, 2000);
+        `}
+      </Script>
     </>
   );
 }
