@@ -1,9 +1,18 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
+const isProd = process.env.NODE_ENV === 'production';
 
 export default config({
-  storage: {
-    kind: "local",
-  },
+  storage: isProd
+    ? {
+      kind: 'github',
+      repo: {
+        owner: 'HariKrishna-9885699666',
+        name: 'portfolio',
+      },
+    }
+    : {
+      kind: 'local',
+    },
   singletons: {
     profile: singleton({
       label: "Profile",
