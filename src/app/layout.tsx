@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://harikrishna.is-a-good.dev'),
   title: "Hari Krishna Anem | Portfolio",
   description: "Senior Full Stack Developer Portfolio",
 };

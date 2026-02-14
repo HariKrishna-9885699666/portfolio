@@ -1,13 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import ResumeModal from "@/components/ui/ResumeModal";
-
 interface HeroProps {
   profile?: {
     readonly name?: string | null;
     readonly title?: string | null;
-    readonly bio?: any;
     readonly heroHeadlinePrefix?: string | null;
     readonly heroHeadlineCompany?: string | null;
     readonly heroHeadlineCompanyUrl?: string | null;
@@ -15,9 +11,6 @@ interface HeroProps {
 }
 
 export const Hero = ({ profile }: HeroProps) => {
-    const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
-    const resumeUrl = "/resume/HariKrishna_Resume.pdf"; 
-
     return (
         <div id="home" className="slider-area">
             <div className="single-slider slider-height d-flex align-items-center">
@@ -57,11 +50,6 @@ export const Hero = ({ profile }: HeroProps) => {
                     </div>
                 </div>
             </div>
-             <ResumeModal 
-                isOpen={isResumeModalOpen} 
-                onClose={() => setIsResumeModalOpen(false)} 
-                resumeUrl={resumeUrl}
-            />
         </div>
     );
 };

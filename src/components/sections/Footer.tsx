@@ -16,7 +16,7 @@ interface FooterProps {
 
 export const Footer = ({ profile }: FooterProps) => {
     const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
-    const resumeUrl = "/resume/HariKrishna_Resume.pdf"; // Hardcoded path based on user request
+    const resumeUrl = profile?.resumeUrl || "/resume/HariKrishna_Resume.pdf"; 
 
     return (
         <footer id="contact">
@@ -92,7 +92,7 @@ export const Footer = ({ profile }: FooterProps) => {
                                     <div className="footer-social">
                                         {profile?.github && <a href={profile.github} target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>}
                                         {profile?.linkedin && <a href={profile.linkedin} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>}
-                                        {profile?.twitter && <a href={profile.twitter} target="_blank" rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>}
+                                        {profile?.twitter && <a href={profile.twitter} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>}
                                         {profile?.email && <a href={`mailto:${profile.email}`}><i className="fas fa-envelope"></i></a>}
                                     </div>
                                 </div>

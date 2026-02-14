@@ -1,11 +1,37 @@
+import { PortableText } from '@portabletext/react';
+
+// Custom components for PortableText to properly render lists
+const portableTextComponents = {
+  block: {
+    normal: ({ children }: any) => <p style={{ color: '#fff', marginBottom: '10px' }}>{children}</p>,
+    h3: ({ children }: any) => <h3 style={{ color: '#FFEFAE', marginTop: '15px', marginBottom: '10px' }}>{children}</h3>,
+    blockquote: ({ children }: any) => <blockquote style={{ borderLeft: '3px solid #FFEFAE', paddingLeft: '15px', fontStyle: 'italic', color: 'rgba(255,255,255,0.9)' }}>{children}</blockquote>,
+  },
+  list: {
+    bullet: ({ children }: any) => <ul style={{ color: '#fff', paddingLeft: '20px', marginLeft: '10px', marginBottom: '10px', listStyleType: 'disc' }}>{children}</ul>,
+    number: ({ children }: any) => <ol style={{ color: '#fff', paddingLeft: '20px', marginLeft: '10px', marginBottom: '10px', listStyleType: 'decimal' }}>{children}</ol>,
+  },
+  listItem: {
+    bullet: ({ children }: any) => <li style={{ marginBottom: '5px', color: 'rgba(255,255,255,0.9)', listStyleType: 'disc' }}>{children}</li>,
+    number: ({ children }: any) => <li style={{ marginBottom: '5px', color: 'rgba(255,255,255,0.9)', listStyleType: 'decimal' }}>{children}</li>,
+  },
+  marks: {
+    strong: ({ children }: any) => <strong style={{ color: '#FFEFAE' }}>{children}</strong>,
+    em: ({ children }: any) => <em>{children}</em>,
+    code: ({ children }: any) => <code style={{ background: 'rgba(255,255,255,0.1)', padding: '2px 6px', borderRadius: '3px', fontSize: '0.9em' }}>{children}</code>,
+    link: ({ children, value }: any) => <a href={value.href} target="_blank" rel="noopener noreferrer" style={{ color: '#FFEFAE', textDecoration: 'underline' }}>{children}</a>,
+  },
+};
+
 interface ExperienceItem {
   company?: string | null;
   role?: string | null;
   startDate?: string | null;
   endDate?: string | null;
-  description?: string | null;
+  description?: any;
   location?: string | null;
   highlights?: readonly string[] | null;
+  current?: boolean | null;
 }
 
 interface EducationItem {
@@ -15,7 +41,7 @@ interface EducationItem {
   startDate?: string | null;
   endDate?: string | null;
   location?: string | null;
-  description?: string | null;
+  description?: any;
 }
 
 interface ExperienceProps {
@@ -45,7 +71,7 @@ export const Experience = ({ experiences, education }: ExperienceProps) => {
                             <div className="single-about">
                                 <div className="tittle-experience">
                                     <h3>{item.role}</h3>
-                                    <p>{item.startDate} - {item.endDate}</p>
+                                    <p>{item.startDate} - {item.current ? 'Present' : item.endDate}</p>
                                 </div>
                                 <div className="experience-info flex flex-col items-end">
                                     {item.location && <p className="experience-location mb-0" style={{ fontSize: '14px', color: '#fff', opacity: 0.9 }}>{item.location}</p>}
@@ -55,7 +81,11 @@ export const Experience = ({ experiences, education }: ExperienceProps) => {
                                 </div>
                             </div>
                             <div className="experience-details mt-10">
-                                {item.description && <p className="mb-10" style={{ color: '#fff' }}>{item.description}</p>}
+                                {item.description && (
+                                    <div className="mb-10">
+                                        <PortableText value={item.description} components={portableTextComponents} />
+                                    </div>
+                                )}
                                 {item.highlights && item.highlights.length > 0 && (
                                     <ul className="list-unstyled">
                                         {item.highlights.map((highlight, hIndex) => (

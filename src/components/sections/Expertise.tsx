@@ -1,20 +1,23 @@
+"use client";
+
+import { motion } from 'framer-motion';
+import { urlFor } from '@/lib/sanity';
+
 interface SkillItem {
   readonly name?: string | null;
-}
-
-interface SkillCategory {
-  readonly title?: string | null;
-  readonly highlights?: readonly string[] | null;
-  readonly items?: readonly SkillItem[] | undefined;
+  readonly icon?: any;
+  readonly category?: string | null;
 }
 
 interface ExpertiseProps {
-  skills?: SkillCategory[] | null;
+  skills?: SkillItem[] | null;
 }
 
 export const Expertise = ({ skills }: ExpertiseProps) => {
+    const validSkills = skills?.filter(skill => skill.icon) || [];
+
     return (
-        <div id="expertise" className="our-services pt-top section-bg1">
+        <div id="expertise" className="our-services pt-top section-bg1" style={{ overflow: 'hidden' }}>
             <div className="container">
                 <div className="row">
                     <div className="col-xl-12">
@@ -24,43 +27,59 @@ export const Expertise = ({ skills }: ExpertiseProps) => {
                     </div>
                 </div>
                 <div className="row d-flex justify-content-center">
-                    {(skills && skills.length > 0 ? skills : [
-                        { title: "Full-Stack Development", highlights: ["8+ years of expertise in MERN stack.", "Proficient in Node.js, NestJS, and GraphQL."] },
-                        { title: "Architecture & Cloud", highlights: ["Experience in Serverless and AWS Lambda.", "Skilled in microservices and API integrations."] }
-                    ]).map((service, index) => (
-                        <div key={index} className="col-lg-4 col-md-6 col-sm-12">
-                            <div className="single-services mb-30" style={{ 
-                                background: '#1c1c1c', 
-                                padding: '40px 30px', 
-                                height: '80%', 
-                                minHeight: '320px',
-                                border: '1px solid rgba(255, 255, 255, 0.1)',
-                                borderRadius: '8px',
-                                boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-                            }}>
-                                <div className="services-cap">
-                                    <h5 style={{ color: '#FFEFAE', marginBottom: '20px', fontSize: '22px', fontWeight: '600', letterSpacing: '0.5px' }}>
-                                        {service.title}
-                                    </h5>
-                                    <div className="expertise-highlights mb-20">
-                                        {service.highlights?.map((highlight, hIndex) => (
-                                            <p key={hIndex} style={{ color: '#ffffff', fontSize: '15px', lineHeight: '1.6', marginBottom: '12px', display: 'flex', gap: '10px' }}>
-                                                <span style={{ color: '#FFEFAE', fontSize: '18px' }}>•</span>
-                                                <span>{highlight}</span>
-                                            </p>
-                                        ))}
-                                    </div>
-                                    {service.items && service.items.length > 0 && (
-                                        <div style={{ marginTop: 'auto', paddingTop: '15px', borderTop: '1px solid rgba(255, 255, 255, 0.1)' }}>
-                                            <p style={{ color: 'rgba(255, 255, 255, 0.5)', fontSize: '13px', fontStyle: 'italic', marginBottom: 0 }}>
-                                                {service.items.map(i => i.name).join(", ")}
-                                            </p>
-                                        </div>
-                                    )}
+                    {validSkills.map((skill, index) => (
+                        <motion.div 
+                            key={index} 
+                            className="col-lg-3 col-md-4 col-sm-6 col-6 mb-30"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            viewport={{ once: true }}
+                        >
+                            <motion.div 
+                                className="single-services text-center"
+                                whileHover={{ 
+                                    scale: 1.1, 
+                                    rotateY: 15,
+                                    rotateX: -15,
+                                    boxShadow: "0 20px 40px rgba(0,0,0,0.2)"
+                                }}
+                                style={{ 
+                                    background: '#1c1c1c', 
+                                    padding: '30px 20px', 
+                                    borderRadius: '16px',
+                                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                                    perspective: '1000px',
+                                    cursor: 'pointer',
+                                    height: '100%',
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    transition: 'all 0.3s ease-out'
+                                }}
+                            >
+                                <div className="services-icon mb-20" style={{ width: '60px', height: '60px', position: 'relative' }}>
+                                    <img 
+                                        src={urlFor(skill.icon).width(120).url()} 
+                                        alt={skill.name || 'Skill'} 
+                                        style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                                    />
                                 </div>
-                            </div>
-                        </div>
+                                <div className="services-cap">
+                                    <h5 style={{ color: '#FFEFAE', marginBottom: '5px', fontSize: '18px', fontWeight: '500' }}>
+                                        {skill.name}
+                                    </h5>
+                                </div>
+                            </motion.div>
+                        </motion.div>
                     ))}
+                    
+                    {validSkills.length === 0 && (
+                        <div className="col-12 text-center">
+                            <p style={{ color: '#666' }}>Upload skill icons in Sanity Studio to see them here.</p>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
