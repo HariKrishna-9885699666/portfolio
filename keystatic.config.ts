@@ -1,8 +1,11 @@
 import { config, fields, collection, singleton } from "@keystatic/core";
 const isProd = process.env.NODE_ENV === 'production';
+// Only use GitHub mode if we're in prod AND have the credentials
+// This prevents build failures in environments where we just want to build the site (like locally or in CI without secrets)
+const useGithub = isProd && process.env.KEYSTATIC_GITHUB_CLIENT_ID && process.env.KEYSTATIC_GITHUB_CLIENT_SECRET;
 
 export default config({
-  storage: isProd
+  storage: useGithub
     ? {
       kind: 'github',
       repo: {

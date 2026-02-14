@@ -58,7 +58,7 @@ export const About = ({ profile }: AboutProps) => {
                     </div>
                     <div className="col-lg-6">
                         <div className="about-img">
-                            <img src="/img/gallery/profile-img.jpg" alt="" />
+                            <img src="/img/profile-img.jpg" alt="" />
                         </div>
                     </div>
                 </div>

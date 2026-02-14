@@ -1,7 +1,16 @@
 import { createReader } from "@keystatic/core/reader";
 import config from "../../keystatic.config";
 
-export const reader = createReader(process.cwd(), config);
+// Force local mode for the reader to ensure we read from filesystem in all environments
+// including Vercel (where files are present during build)
+const readerConfig = {
+  ...config,
+  storage: {
+    kind: 'local' as const,
+  }
+};
+
+export const reader = createReader(process.cwd(), readerConfig);
 
 // Helper to resolve markdoc content robustly
 // Helper to normalize Markdoc nodes into plain objects for reliable client-side serialization
