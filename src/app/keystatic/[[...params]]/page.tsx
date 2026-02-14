@@ -3,6 +3,14 @@
 import { makePage } from "@keystatic/next/ui/app";
 import config from "../../../../keystatic.config";
 
-const Page = makePage(config);
+type Props = {
+  params: {
+    params?: string[];
+  };
+};
 
-export default Page;
+const KeystaticApp = makePage(config);
+
+export default function Page(props: Props) {
+  return <KeystaticApp {...props} />;
+}
