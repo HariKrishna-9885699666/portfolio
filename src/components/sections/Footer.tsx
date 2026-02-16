@@ -90,10 +90,6 @@ export const Footer = ({ profile }: FooterProps) => {
                             <div className="row align-items-center">
                                 <div className="col-xl-4 col-lg-4">
                                     <div className="footer-social">
-                                        {profile?.github && <a href={profile.github} target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>}
-                                        {profile?.linkedin && <a href={profile.linkedin} target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin-in"></i></a>}
-                                        {profile?.twitter && <a href={profile.twitter} target="_blank" rel="noopener noreferrer"><i className="fab fa-twitter"></i></a>}
-                                        {profile?.email && <a href={`mailto:${profile.email}`}><i className="fas fa-envelope"></i></a>}
                                     </div>
                                 </div>
                                 <div className="col-xl-8 col-lg-8">

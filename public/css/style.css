@@ -3484,7 +3484,7 @@ hr {
   color: #670000;
   font-size: 30px;
   font-weight: 300;
-  padding-right: 50px;
+  padding-right: 0px;
 }
 
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {

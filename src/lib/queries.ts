@@ -68,6 +68,7 @@ export async function getExperiences() {
       endDate,
       current,
       description,
+      projects,
       technologies
     }
   `);

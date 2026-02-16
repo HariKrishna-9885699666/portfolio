@@ -37,8 +37,8 @@ export const Header = () => {
 
     return (
         <header>
-            <div className="header-area header-transparent">
-                <div className="main-header header-sticky">
+            <div className="header-area header-transparent relative" style={{ zIndex: 9999 }}>
+                <div className="main-header header-sticky" style={{ zIndex: 9999 }}>
                     <div className="container-fluid">
                         <div className="menu-wrapper d-flex align-items-center justify-content-between">
                             {/* Logo */}

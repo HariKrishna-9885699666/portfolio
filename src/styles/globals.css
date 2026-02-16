@@ -2508,16 +2508,16 @@ hr {
   height: 100px;
   position: relative;
   border-style: solid;
-  border-width: 1px;
+  border-width: 3px;
   border-top-color: #670000;
   border-bottom-color: transparent;
   border-left-color: transparent;
   border-right-color: transparent;
   z-index: 10;
   border-radius: 50%;
-  -webkit-box-shadow: 0 1px 5px 0 rgba(35, 181, 185, 0.15);
-  box-shadow: 0 1px 5px 0 rgba(35, 181, 185, 0.15);
-  background-color: #fff;
+  -webkit-box-shadow: 0 1px 5px 0 rgba(103, 0, 0, 0.15);
+  box-shadow: 0 1px 5px 0 rgba(103, 0, 0, 0.15);
+  background-color: transparent;
   -webkit-animation: zoom 2000ms infinite ease;
   animation: zoom 2000ms infinite ease;
   -webkit-transition: .6s;
@@ -2543,7 +2543,7 @@ hr {
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  padding-top: 6px;
+  padding-top: 0;
   -webkit-transition: .6s;
   -o-transition: .6s;
   transition: .6s;
@@ -2556,9 +2556,12 @@ hr {
 
 /* line 679, C:/Users/HP/Desktop/jun-2020/283.Personal/assets/scss/_common.scss */
 .preloader .pere-text strong {
+  font-family: Raleway, sans-serif;
   font-weight: 800;
-  color: #dca73a;
+  color: #670000;
   text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 2px;
 }
 
 @-webkit-keyframes zoom {

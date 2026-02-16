@@ -7,6 +7,10 @@ interface HeroProps {
     readonly heroHeadlinePrefix?: string | null;
     readonly heroHeadlineCompany?: string | null;
     readonly heroHeadlineCompanyUrl?: string | null;
+    readonly github?: string | null;
+    readonly linkedin?: string | null;
+    readonly twitter?: string | null;
+    readonly email?: string | null;
   } | null;
 }
 
@@ -26,25 +30,29 @@ export const Hero = ({ profile }: HeroProps) => {
                                         <b className="is-visible">{profile?.heroHeadlineCompany || "Carnera Technology"}</b>
                                     </a>
                                 </p>
-                                {/* Download CV Button - Hidden here but usually part of Hero. Wait, the user request implied it. 
-                                    Checking step 2085 (Footer), line 29 shows "Download CV" in the 'wantToWork-area', which is technically inside Footer component in this codebase.
-                                    Checking step 2093 (Hero), I DO NOT see a "Download CV" button.
-                                    So only Footer needs update. 
-                                    BUT, typical portfolios have it in Hero too. 
-                                    Let me double check step 2093 content.
-                                    Lines 18-29: H1, P, P with link. No download button.
-                                    Okay, so only Footer has it. I will NOT update Hero.
-                                    Wait, the previous turn plan said "Update Hero and Footer".
-                                    I should stick to facts. Fact: Hero has no button. Footer has button.
-                                    Action: Only update Footer. 
-                                    However, the user said "link that to Download CV button". Codebase search only found it in Footer.
-                                    So I will only proceed with Footer update which I already did in the previous tool call.
-                                    Actually I should confirm if there's any other "Download CV" text.
-                                    Grep in 2084 returned only Footer.tsx.
-                                    So updating Hero is unnecessary and incorrect based on current file content.
-                                    I will skip updating Hero.tsx.
-                                */
-                                }
+                                
+                                <div className="hero-social-links mt-30">
+                                    {profile?.github && (
+                                        <a href={profile.github} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#333', marginRight: '20px' }}>
+                                            <i className="fab fa-github"></i>
+                                        </a>
+                                    )}
+                                    {profile?.linkedin && (
+                                        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#0077b5', marginRight: '20px' }}>
+                                            <i className="fab fa-linkedin-in"></i>
+                                        </a>
+                                    )}
+                                    {profile?.twitter && (
+                                        <a href={profile.twitter} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#1da1f2', marginRight: '20px' }}>
+                                            <i className="fab fa-twitter"></i>
+                                        </a>
+                                    )}
+                                    {profile?.email && (
+                                        <a href={`mailto:${profile.email}`} style={{ fontSize: '24px', color: '#ea4335' }}>
+                                            <i className="fas fa-envelope"></i>
+                                        </a>
+                                    )}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -53,3 +61,4 @@ export const Hero = ({ profile }: HeroProps) => {
         </div>
     );
 };
+

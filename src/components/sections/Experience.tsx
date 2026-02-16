@@ -32,6 +32,13 @@ interface ExperienceItem {
   location?: string | null;
   highlights?: readonly string[] | null;
   current?: boolean | null;
+  projects?: {
+    name: string;
+    startDate?: string | null;
+    endDate?: string | null;
+    description?: any;
+    technologies?: string[] | null;
+  }[] | null;
 }
 
 interface EducationItem {
@@ -80,20 +87,58 @@ export const Experience = ({ experiences, education }: ExperienceProps) => {
                                     </div>
                                 </div>
                             </div>
+
                             <div className="experience-details mt-10">
-                                {item.description && (
-                                    <div className="mb-10">
-                                        <PortableText value={item.description} components={portableTextComponents} />
-                                    </div>
-                                )}
-                                {item.highlights && item.highlights.length > 0 && (
-                                    <ul className="list-unstyled">
-                                        {item.highlights.map((highlight, hIndex) => (
-                                            <li key={hIndex} style={{ color: 'rgba(255,255,255,0.9)', fontSize: '14px', marginBottom: '5px' }}>
-                                                • {highlight}
-                                            </li>
+                                {item.projects && item.projects.length > 0 ? (
+                                    <div className="projects-list">
+                                        {item.projects.map((project, pIndex) => (
+                                            <div key={pIndex} className="project-item mb-20 p-4 border border-gray-700/30 rounded-lg bg-white/5">
+                                                <div className="flex justify-between items-baseline mb-2">
+                                                    <h4 style={{ color: '#FFEFAE', fontSize: '1.1em', fontWeight: 500 }}>{project.name}</h4>
+                                                    <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9em' }}>
+                                                        {project.startDate} - {project.endDate || 'Present'}
+                                                    </span>
+                                                </div>
+                                                {project.description && (
+                                                    <div className="mb-2">
+                                                        <PortableText value={project.description} components={portableTextComponents} />
+                                                    </div>
+                                                )}
+                                                {project.technologies && project.technologies.length > 0 && (
+                                                    <div className="flex flex-wrap gap-2 mt-2">
+                                                        {project.technologies.map((tech, tIndex) => (
+                                                            <span key={tIndex} style={{ 
+                                                                color: 'rgba(255,255,255,0.8)', 
+                                                                fontSize: '0.8em',
+                                                                background: 'rgba(255,255,255,0.1)',
+                                                                padding: '2px 8px',
+                                                                borderRadius: '12px'
+                                                            }}>
+                                                                {tech}
+                                                            </span>
+                                                        ))}
+                                                    </div>
+                                                )}
+                                            </div>
                                         ))}
-                                    </ul>
+                                    </div>
+                                ) : (
+                                    <>
+                                        {item.description && (
+                                            <div className="mb-10">
+                                                <PortableText value={item.description} components={portableTextComponents} />
+                                            </div>
+                                        )}
+                                        {item.highlights && item.highlights.length > 0 && (
+                                            <ul className="list-unstyled">
+                                                {item.highlights.map((highlight, hIndex) => (
+                                                    <li key={hIndex} style={{ color: 'rgba(255,255,255,0.9)', fontSize: '14px', marginBottom: '5px' }}>
+                                                        • {highlight}
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        )}
+                                    </>
                                 )}
                             </div>
                         </div>

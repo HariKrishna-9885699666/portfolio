@@ -30,6 +30,9 @@ export default function SiteLayout({
           <div className="preloader d-flex align-items-center justify-content-center">
               <div className="preloader-inner position-relative">
                   <div className="preloader-circle"></div>
+                  <div className="preloader-img pere-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 20 }}>
+                      <strong>Hari</strong>
+                  </div>
               </div>
           </div>
       </div>

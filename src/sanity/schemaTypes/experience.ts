@@ -74,6 +74,49 @@ export const experience = defineType({
       ],
     }),
     defineField({
+      name: 'projects',
+      title: 'Projects',
+      type: 'array',
+      of: [
+        {
+          type: 'object',
+          name: 'project',
+          title: 'Project',
+          fields: [
+            { name: 'name', type: 'string', title: 'Project Name' },
+            { name: 'startDate', type: 'date', title: 'Start Date' },
+            { name: 'endDate', type: 'date', title: 'End Date' },
+            { 
+              name: 'description', 
+              title: 'Description/Bio', 
+              type: 'array', 
+              of: [{ type: 'block' }] 
+            },
+            {
+              name: 'technologies',
+              title: 'Technologies Used',
+              type: 'array',
+              of: [{ type: 'string' }],
+              options: { layout: 'tags' },
+            }
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              startDate: 'startDate',
+              endDate: 'endDate'
+            },
+            prepare({ title, startDate, endDate }) {
+              return {
+                title: title,
+                subtitle: `${startDate || 'N/A'} - ${endDate || 'Present'}`
+              }
+            }
+          }
+        }
+      ]
+    }),
+    defineField({
       name: 'technologies',
       title: 'Technologies Used',
       type: 'array',
