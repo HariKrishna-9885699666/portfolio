@@ -80,7 +80,7 @@ export const Experience = ({ experiences, education }: ExperienceProps) => {
                                     <h3>{item.role}</h3>
                                     <p>{item.startDate} - {item.current ? 'Present' : item.endDate}</p>
                                 </div>
-                                <div className="experience-info flex flex-col items-end">
+                                <div className="experience-info flex flex-col items-start md:items-end">
                                     {item.location && <p className="experience-location mb-0" style={{ fontSize: '14px', color: '#fff', opacity: 0.9 }}>{item.location}</p>}
                                     <div className="experience-company" style={{ fontSize: '16px', color: '#FFEFAE' }}>
                                         {item.company || (item as any).slug?.replace(/-/g, ' ').replace(/\b\w/g, (l: string) => l.toUpperCase())}

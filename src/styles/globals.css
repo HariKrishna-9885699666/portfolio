@@ -3988,6 +3988,13 @@ hr {
   border-bottom: 1px solid #700F0F;
 }
 
+@media (max-width: 767px) {
+  .may-about .single-about {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 /* line 12, C:/Users/HP/Desktop/jun-2020/283.Personal/assets/scss/_my-about.scss */
 .may-about .single-about .tittle-experience {
   padding-top: 15px;
