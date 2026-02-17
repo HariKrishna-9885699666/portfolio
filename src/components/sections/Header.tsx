@@ -1,39 +1,19 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import ResumeModal from '@/components/ui/ResumeModal';
+import { useResumeModal } from '@/hooks/useResumeModal';
+import { useNavItems } from '@/hooks/useNavItems';
+import { useActiveSection } from '@/hooks/useActiveSection';
 
 export const Header = () => {
-    const [activeSection, setActiveSection] = useState('home');
+    // Navigation items and active section logic
+    const navItems = useNavItems();
+    const sectionIds = navItems.map(item => item.id);
+    const activeSection = useActiveSection(sectionIds, 100);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const sections = ['home', 'about', 'experience', 'expertise', 'contact'];
-            const scrollPosition = window.scrollY + 100;
-
-            for (const section of sections) {
-                const element = document.getElementById(section);
-                if (element) {
-                    const { offsetTop, offsetHeight } = element;
-                    if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-                        setActiveSection(section);
-                        break;
-                    }
-                }
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-
-    const navItems = [
-        { label: 'Home', href: '#home', id: 'home' },
-        { label: 'About', href: '#about', id: 'about' },
-        { label: 'Experience', href: '#experience', id: 'experience' },
-        { label: 'Expertise', href: '#expertise', id: 'expertise' },
-        { label: 'Contact', href: '#contact', id: 'contact' },
-    ];
+    // Resume modal logic
+    const { isResumeModalOpen, openResumeModal, closeResumeModal, resumeUrl } = useResumeModal();
 
     return (
         <header>
@@ -58,10 +38,17 @@ export const Header = () => {
                                         ))}
                                     </ul>
                                 </nav>
-                            </div>          
+                            </div>
                             {/* Header-btn */}
                             <div className="header-info-right d-none d-lg-block">
                                 <a href="#contact" className="btn header-btn">Let's Talk <i className="ti-arrow-right"></i></a>
+                                <button
+                                    onClick={openResumeModal}
+                                    className="btn header-btn"
+                                    style={{ marginLeft: '10px' }}
+                                >
+                                    Download CV <i className="ti-arrow-down"></i>
+                                </button>
                             </div>
                             {/* Mobile Menu */}
                             <div className="col-12">
@@ -71,6 +58,11 @@ export const Header = () => {
                     </div>
                 </div>
             </div>
+            <ResumeModal
+                isOpen={isResumeModalOpen}
+                onClose={closeResumeModal}
+                resumeUrl={resumeUrl}
+            />
         </header>
     );
 };

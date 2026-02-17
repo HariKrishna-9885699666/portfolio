@@ -21,20 +21,19 @@ export default function SiteLayout({
       <link rel="stylesheet" href="/css/themify-icons.css" />
       <link rel="stylesheet" href="/css/slick.css" />
       <link rel="stylesheet" href="/css/nice-select.css" />
+
       <link rel="stylesheet" href="/css/style.css" />
+      <link rel="stylesheet" href="/css/preloader-custom.css" />
 
 
 
-      {/* Preloader */}
+
+      {/* Preloader - Custom Animated */}
       <div id="preloader-active">
-          <div className="preloader d-flex align-items-center justify-content-center">
-              <div className="preloader-inner position-relative">
-                  <div className="preloader-circle"></div>
-                  <div className="preloader-img pere-text" style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 20 }}>
-                      <strong>Hari</strong>
-                  </div>
-              </div>
-          </div>
+        <div className="preloader-inner">
+          <div className="preloader-spinner"></div>
+          <div className="preloader-text">Hari</div>
+        </div>
       </div>
 
       {children}
