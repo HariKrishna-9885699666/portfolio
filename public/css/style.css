@@ -3475,7 +3475,7 @@ hr {
 @media (max-width: 575px) {
   /* line 25, C:/Users/HP/Desktop/jun-2020/283.Personal/assets/scss/_h1-hero.scss */
   .slider-area .hero__caption {
-    padding-top: 54px;
+    padding-top: 75px;
   }
 }
 
@@ -3490,7 +3490,7 @@ hr {
 @media only screen and (min-width: 1200px) and (max-width: 1600px) {
   /* line 36, C:/Users/HP/Desktop/jun-2020/283.Personal/assets/scss/_h1-hero.scss */
   .slider-area .hero__caption p {
-    padding-right: 50px;
+    padding-right: 0px;
   }
 }
 
@@ -3525,7 +3525,7 @@ hr {
     font-size: 18px;
     line-height: 1.1;
     margin-bottom: 10px;
-    padding-right: 20px;
+    padding-right: 0px;
   }
 }
 

@@ -93,7 +93,7 @@ export const Experience = ({ experiences, education }: ExperienceProps) => {
                                     <div className="projects-list">
                                         {item.projects.map((project, pIndex) => (
                                             <div key={pIndex} className="project-item mb-20 p-4 border border-gray-700/30 rounded-lg bg-white/5">
-                                                <div className="flex justify-between items-baseline mb-2">
+                                                <div className="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2 gap-1 md:gap-0">
                                                     <h4 style={{ color: '#FFEFAE', fontSize: '1.1em', fontWeight: 500 }}>{project.name}</h4>
                                                     <span style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.9em' }}>
                                                         {project.startDate} - {project.endDate || 'Present'}
