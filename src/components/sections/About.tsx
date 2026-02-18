@@ -28,6 +28,7 @@ const portableTextComponents = {
 
 interface AboutProps {
   profile?: {
+    readonly name?: string | null;
     readonly bio?: any;
     readonly profileImage?: any;
   } | null;
@@ -58,7 +59,8 @@ export const About = ({ profile }: AboutProps) => {
                             {profile?.profileImage ? (
                                 <img 
                                     src={urlFor(profile.profileImage).width(600).url()} 
-                                    alt="Profile" 
+                                    alt={`Profile photo of ${profile?.name || 'the developer'}`}
+                                    title={`Profile photo of ${profile?.name || 'the developer'}`}
                                     style={{ width: '100%', height: 'auto', borderRadius: '8px' }}
                                 />
                             ) : (

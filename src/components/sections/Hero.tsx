@@ -33,22 +33,22 @@ export const Hero = ({ profile }: HeroProps) => {
                                 
                                 <div className="hero-social-links mt-30">
                                     {profile?.github && (
-                                        <a href={profile.github} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#333', marginRight: '20px' }}>
+                                        <a href={profile.github} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#333', marginRight: '20px' }} aria-label="GitHub">
                                             <i className="fab fa-github"></i>
                                         </a>
                                     )}
                                     {profile?.linkedin && (
-                                        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#0077b5', marginRight: '20px' }}>
+                                        <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#0077b5', marginRight: '20px' }} aria-label="LinkedIn">
                                             <i className="fab fa-linkedin-in"></i>
                                         </a>
                                     )}
                                     {profile?.twitter && (
-                                        <a href={profile.twitter} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#1da1f2', marginRight: '20px' }}>
+                                        <a href={profile.twitter} target="_blank" rel="noopener noreferrer" className="mr-20" style={{ fontSize: '24px', color: '#1da1f2', marginRight: '20px' }} aria-label="Twitter">
                                             <i className="fab fa-twitter"></i>
                                         </a>
                                     )}
                                     {profile?.email && (
-                                        <a href={`mailto:${profile.email}`} style={{ fontSize: '24px', color: '#ea4335' }}>
+                                        <a href={`mailto:${profile.email}`} style={{ fontSize: '24px', color: '#ea4335' }} aria-label="Email">
                                             <i className="fas fa-envelope"></i>
                                         </a>
                                     )}

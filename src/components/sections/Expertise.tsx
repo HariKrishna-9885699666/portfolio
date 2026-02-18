@@ -75,7 +75,8 @@ export const Expertise = ({ skills }: ExpertiseProps) => {
                                     <div className="relative w-10 h-10 md:w-12 md:h-12">
                                         <img 
                                             src={urlFor(skill.icon).width(120).url()} 
-                                            alt={skill.name || 'Skill'} 
+                                            alt={skill.name || 'Skill'}
+                                            title={skill.name || 'Skill'}
                                             className="w-full h-full object-contain filter drop-shadow-lg"
                                         />
                                     </div>
